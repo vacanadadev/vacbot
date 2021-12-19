@@ -77,7 +77,7 @@ export class WeatherCommand extends Command {
 
         switch (options.getSubcommand()) {
             case 'metar':
-                await superagent
+                superagent
                     .get(`https://avwx.rest/api/metar/${station}?options=translate&token=${process.env.AVWX_TOKEN}`)
                     .send()
                     .end((err, res) => {
@@ -88,16 +88,14 @@ export class WeatherCommand extends Command {
                             return interaction.editReply({ content: `${res.body.error}` });
                         }
                         if (res.body) {
-                            let timestamp1 = new Date(res.body.time.dt).toUTCString()
+                            let timestamp1 = new Date(res.body.time.dt).toUTCString();
                             let timestamp = (new Date(new Date(res.body.time.dt).toUTCString()).getTime() / 1000).toFixed(0);
-
-                            // let content = `**METAR** for **${station}** at <t:${timestamp}:t> (<t:${timestamp}:R>):\`\`\`${res.body.raw}\`\`\``;
 
                             const { body } = res;
                             const { translate } = body;
 
                             let remarksArray = [];
-                            const translateRemarks = Object.keys(translate.remarks).map((key) => [(key), translate.remarks[key]])
+                            const translateRemarks = Object.keys(translate.remarks).map((key) => [(key), translate.remarks[key]]);
                             for (let i = 0; i < translateRemarks.length; i++) {
                                 const remark = translateRemarks[i];
                                 remarksArray.push(`*${remark[0]}*: ${remark[1]}`);
@@ -105,7 +103,7 @@ export class WeatherCommand extends Command {
 
                             let remarks = remarksArray == [] ? 'No Remarks' : remarksArray.join('\n');
 
-                            var metarEmbed = {
+                            let metarEmbed = {
                                 title: `METAR`,
                                 author: {
                                     name: client.user?.username,
@@ -132,12 +130,59 @@ export class WeatherCommand extends Command {
                                 footer: {
                                     text: `© VAC, 1998-${new Date().getFullYear()}`
                                 }
-                            }
+                            };
 
-                            interaction.editReply({ embeds: [metarEmbed] });
+                            return interaction.editReply({ embeds: [metarEmbed] });
 
                         }
                     })
+                break;
+            case 'taf':
+                superagent
+                    .get(`https://avwx.rest/api/taf/${station}?options=translate&token=${process.env.AVWX_TOKEN}`)
+                    .send()
+                    .end((err, res) => {
+                        if (err) {
+                            return interaction.editReply({ content: `${err}` });
+                        }
+                        if (res.body.error) {
+                            return interaction.editReply({ content: `${res.body.error}` });
+                        }
+                        if (res.body) {
+                            let timestamp1 = new Date(res.body.time.dt).toUTCString();
+                            let timestamp = (new Date(new Date(res.body.time.dt).toUTCString()).getTime() / 1000).toFixed(0);
+
+                            const { body } = res;
+
+                            let forcasts = body.forecast.slice(0, 4);
+                            let readableRaw = '';
+                            for (let i = 0; i < forcasts.length; i++) {
+                                const fc = forcasts[i];
+                                readableRaw = `${readableRaw}${fc.sanitized}\n`
+                            }
+
+                            let tafEmbed = {
+                                title: `TAF`,
+                                author: {
+                                    name: client.user?.username,
+                                    icon_url: 'https://cdn.discordapp.com/icons/407578094698889237/f3882269092c5b5c3a830b10c1bcad43.webp?size=128s',
+                                    url: 'https://vacanada.org',
+                                },
+                                fields: [
+                                    {
+                                        name: `${station} TAF`,
+                                        value: readableRaw
+                                    },
+                                ],
+                                footer: {
+                                    text: `© VAC, 1998-${new Date().getFullYear()}`
+                                }
+                            }
+
+                            return interaction.editReply({ embeds: [tafEmbed] });
+                        }
+                    })
+                break;
 
 
         }
