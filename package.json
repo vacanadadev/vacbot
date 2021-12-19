@@ -1,0 +1,26 @@
+{
+  "name": "vacbot",
+  "version": "1.0.0",
+  "description": "The Discord Bot for the VACANADA Discord Server",
+  "main": "bin/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\"",
+    "build": "echo \"Building...\" && npx tsc && echo \"Done\"",
+    "release": "echo \"Building Changelog...\" && standard-version && echo \"Done\""
+  },
+  "keywords": [],
+  "author": "GoldenXLence",
+  "license": "AGPL-3.0",
+  "dependencies": {
+    "@discordjs/builders": "^0.9.0",
+    "@discordjs/rest": "^0.1.0-canary.0",
+    "@sapphire/framework": "^2.3.0-pr-293.5e9c362.0",
+    "discord-api-types": "^0.25.2",
+    "discord.js": "^13.3.1",
+    "dotenv": "^10.0.0",
+    "typescript": "^4.5.4"
+  },
+  "devDependencies": {
+    "standard-version": "9.3.2"
+  }
+}
