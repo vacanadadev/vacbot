@@ -69,7 +69,7 @@ export class WeatherCommand extends Command {
         let { options } = interaction;
         const station = options.getString('icao')?.toUpperCase();
 
-        await interaction.reply({ content: `Fetching ${options.getSubcommand().toUpperCase()} for \`${station}\`... ⌛`, ephemeral: options.getBoolean('private') || false }); // Sends temporary message to user to indicatge that the command is running
+        await interaction.deferReply({ ephemeral: options.getBoolean('private') || false });
 
         if (station?.length !== 4) {
             return await interaction.editReply({ content: `Invalid ICAO code: \`${station}\`` });
@@ -82,10 +82,13 @@ export class WeatherCommand extends Command {
                     .send()
                     .end((err, res) => {
                         if (err) {
+                            if (err == 'Error: Bad Request') {
+                                return interaction.editReply({ content: `Invalid ICAO code: \`${station}\`` });
+                            }
                             return interaction.editReply({ content: `${err}` });
                         }
                         if (res.body.error) {
-                            return interaction.editReply({ content: `${res.body.error}` });
+                            return interaction.editReply({ content: `${res.body.error}!` });
                         }
                         if (res.body) {
                             let timestamp1 = new Date(res.body.time.dt).toUTCString();
@@ -143,6 +146,9 @@ export class WeatherCommand extends Command {
                     .send()
                     .end((err, res) => {
                         if (err) {
+                            if (err == 'Error: Bad Request') {
+                                return interaction.editReply({ content: `Invalid ICAO code: \`${station}\`` });
+                            }
                             return interaction.editReply({ content: `${err}` });
                         }
                         if (res.body.error) {
