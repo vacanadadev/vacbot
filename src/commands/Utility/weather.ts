@@ -1,7 +1,8 @@
 import { ApplicationCommandRegistry, Command } from '@sapphire/framework';
 import type { CommandInteraction, Message } from 'discord.js';
 import superagent from 'superagent';
-import { client } from '..';
+import { client } from '../..';
+import { createInfoEmbed } from '../../utils/createInfoEmbed';
 
 export class WeatherCommand extends Command {
     public constructor(context: Command.Context, options: Command.Options) {
@@ -91,9 +92,6 @@ export class WeatherCommand extends Command {
                             return interaction.editReply({ content: `${res.body.error}!` });
                         }
                         if (res.body) {
-                            let timestamp1 = new Date(res.body.time.dt).toUTCString();
-                            let timestamp = (new Date(new Date(res.body.time.dt).toUTCString()).getTime() / 1000).toFixed(0);
-
                             const { body } = res;
                             const { translate } = body;
 
@@ -106,14 +104,8 @@ export class WeatherCommand extends Command {
 
                             let remarks = remarksArray == [] ? 'No Remarks' : remarksArray.join('\n');
 
-                            let metarEmbed = {
-                                title: `METAR`,
-                                author: {
-                                    name: client.user?.username,
-                                    icon_url: 'https://cdn.discordapp.com/icons/407578094698889237/f3882269092c5b5c3a830b10c1bcad43.webp?size=128s',
-                                    url: 'https://vacanada.org',
-                                },
-                                fields: [
+                            let metarEmbed = createInfoEmbed(client, {
+                                title: `METAR`, fields: [
                                     {
                                         name: `${station} METAR`,
                                         value: `${body.sanitized}`
@@ -130,10 +122,8 @@ export class WeatherCommand extends Command {
                                         *Remarks*: ${remarks}`
                                     }
                                 ],
-                                footer: {
-                                    text: `© VAC, 1998-${new Date().getFullYear()}`
-                                }
-                            };
+                                timestamp: Number(new Date(res.body.time.dt))
+                            });
 
                             return interaction.editReply({ embeds: [metarEmbed] });
 
@@ -155,7 +145,6 @@ export class WeatherCommand extends Command {
                             return interaction.editReply({ content: `${res.body.error}` });
                         }
                         if (res.body) {
-                            let timestamp1 = new Date(res.body.time.dt).toUTCString();
                             let timestamp = (new Date(new Date(res.body.time.dt).toUTCString()).getTime() / 1000).toFixed(0);
 
                             const { body } = res;
@@ -167,23 +156,15 @@ export class WeatherCommand extends Command {
                                 readableRaw = `${readableRaw}${fc.sanitized}\n`
                             }
 
-                            let tafEmbed = {
-                                title: `TAF`,
-                                author: {
-                                    name: client.user?.username,
-                                    icon_url: 'https://cdn.discordapp.com/icons/407578094698889237/f3882269092c5b5c3a830b10c1bcad43.webp?size=128s',
-                                    url: 'https://vacanada.org',
-                                },
-                                fields: [
+                            let tafEmbed = createInfoEmbed(client, {
+                                title: `TAF`, fields: [
                                     {
                                         name: `${station} TAF`,
                                         value: readableRaw
                                     },
                                 ],
-                                footer: {
-                                    text: `© VAC, 1998-${new Date().getFullYear()}`
-                                }
-                            }
+                                timestamp: Number(new Date(res.body.time.dt))
+                            })
 
                             return interaction.editReply({ embeds: [tafEmbed] });
                         }

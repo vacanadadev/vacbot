@@ -1,6 +1,6 @@
 import { ApplicationCommandRegistries, ApplicationCommandRegistry, Command, RegisterBehavior } from '@sapphire/framework';
 import { ApplicationCommandPermissionData, CommandInteraction, Message } from 'discord.js';
-import { client } from '../index';
+import { client } from '../../index';
 
 ApplicationCommandRegistries.setDefaultBehaviorWhenNotIdentical(RegisterBehavior.Overwrite)
 
