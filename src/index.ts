@@ -1,16 +1,8 @@
-import { SapphireClient } from '@sapphire/framework';
 import { config } from 'dotenv';
+import { VACClient } from './lib/VACClient';
 config();
 
-const client = new SapphireClient({
-    intents: 14335,
-    caseInsensitiveCommands: true,
-    defaultCooldown: {
-        delay: 5000,
-        limit: 3
-    },
-    typing: true,
-});
+const client = new VACClient();
 
 export { client }
 
