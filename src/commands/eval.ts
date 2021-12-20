@@ -9,7 +9,7 @@ export class EvalCommand extends Command {
         super(context, {
             ...options,
             name: 'eval',
-            aliases: ['run', 'execute'],
+            aliases: [],
             description: 'Runs code in the bot\'s environment. Only for developers.',
         });
     }

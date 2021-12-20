@@ -8,8 +8,8 @@ export class WeatherCommand extends Command {
         super(context, {
             ...options,
             name: 'weather',
-            aliases: ['metar', 'taf'],
-            description: 'Fetches the weather for a given location',
+            aliases: [],
+            description: 'Fetches the weather (METAR or TAF) for a given location',
         });
     }
 

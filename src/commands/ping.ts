@@ -6,7 +6,7 @@ export class PingCommand extends Command {
         super(context, {
             ...options,
             name: 'ping',
-            aliases: ['pong'],
+            aliases: [],
             description: 'Ping Pong! (Tests the bot\'s latency)',
         });
     }
