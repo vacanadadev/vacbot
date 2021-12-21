@@ -50,7 +50,7 @@ export class HelpCommand extends Command {
             paginated.addPageEmbed(createInfoEmbed(client, { title: `${category} Commands`, fields }));;
         }
 
-        const message = await interaction.user.send('**Help Menu** - Use the buttons below to navigate the help menu. One category per page');
+        const message = await interaction.user.send('**Help Menu** - Use the buttons below to navigate the help menu. One category per page. You may not have access to all the commands shown.');
         await paginated.run(message, interaction.user);
 
         interaction.editReply({ content: 'Check your DM\'s!' });
