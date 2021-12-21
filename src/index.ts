@@ -1,10 +1,11 @@
+import { ApplicationCommandRegistries, RegisterBehavior } from '@sapphire/framework';
 import { config } from 'dotenv';
-import { VACClient } from './lib/VACClient';
+import { VACClient } from './lib';
 config();
 
-const client = new VACClient();
+export const client = new VACClient();
 
-export { client }
+ApplicationCommandRegistries.setDefaultBehaviorWhenNotIdentical(RegisterBehavior.Overwrite);
 
 client.on('ready', () => {
     console.log('Ready!');

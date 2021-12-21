@@ -1,8 +1,6 @@
-import { ApplicationCommandRegistries, ApplicationCommandRegistry, Command, RegisterBehavior } from '@sapphire/framework';
+import { ApplicationCommandRegistry, Command, RegisterBehavior } from '@sapphire/framework';
 import { ApplicationCommandPermissionData, CommandInteraction, Message } from 'discord.js';
 import { client } from '../../index';
-
-ApplicationCommandRegistries.setDefaultBehaviorWhenNotIdentical(RegisterBehavior.Overwrite)
 
 export class EvalCommand extends Command {
     public constructor(context: Command.Context, options: Command.Options) {
