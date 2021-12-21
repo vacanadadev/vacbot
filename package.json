@@ -18,10 +18,12 @@
     "discord-api-types": "^0.25.2",
     "discord.js": "^13.3.1",
     "dotenv": "^10.0.0",
+    "number-to-words": "^1.2.4",
     "superagent": "^6.1.0",
     "typescript": "^4.5.4"
   },
   "devDependencies": {
+    "@types/number-to-words": "^1.2.1",
     "@types/superagent": "^4.1.13",
     "standard-version": "9.3.2"
   }
