@@ -39,9 +39,7 @@ export class EvalCommand extends Command {
                 idHints: ['921762487290957855'],
             })
 
-        // setTimeout(async () => {
         const command = await client.guilds.cache.get('921757111548018748')?.commands.fetch('921762487290957855');
-        // console.log(command)
 
         const permissions: ApplicationCommandPermissionData[] = [
             {
@@ -51,7 +49,6 @@ export class EvalCommand extends Command {
             },
         ];
         await command?.permissions.set({ permissions });
-        // }, 2000)
 
     }
 
