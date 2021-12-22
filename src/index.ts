@@ -7,8 +7,4 @@ export const client = new VACClient();
 
 ApplicationCommandRegistries.setDefaultBehaviorWhenNotIdentical(RegisterBehavior.Overwrite);
 
-client.on('ready', () => {
-    console.log('Ready!');
-})
-
 client.login(process.env.TOKEN);

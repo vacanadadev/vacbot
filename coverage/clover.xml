@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1640094158697" clover="3.2.0">
+  <project timestamp="1640094158697" name="All files">
+    <metrics statements="7" coveredstatements="7" conditionals="8" coveredconditionals="8" methods="2" coveredmethods="2" elements="17" coveredelements="17" complexity="0" loc="7" ncloc="7" packages="2" files="3" classes="3"/>
+    <package name="lib">
+      <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <file name="VACClient.ts" path="D:\CODE\VACBOT-V2\src\lib\VACClient.ts">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+      </file>
+      <file name="index.ts" path="D:\CODE\VACBOT-V2\src\lib\index.ts">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="utils">
+      <metrics statements="3" coveredstatements="3" conditionals="8" coveredconditionals="8" methods="1" coveredmethods="1"/>
+      <file name="createInfoEmbed.ts" path="D:\CODE\VACBOT-V2\src\utils\createInfoEmbed.ts">
+        <metrics statements="3" coveredstatements="3" conditionals="8" coveredconditionals="8" methods="1" coveredmethods="1"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+      </file>
+    </package>
+  </project>
+</coverage>

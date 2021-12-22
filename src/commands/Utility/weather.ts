@@ -145,7 +145,6 @@ export class WeatherCommand extends Command {
                             return interaction.editReply({ content: `${res.body.error}` });
                         }
                         if (res.body) {
-                            let timestamp = (new Date(new Date(res.body.time.dt).toUTCString()).getTime() / 1000).toFixed(0);
 
                             const { body } = res;
 
