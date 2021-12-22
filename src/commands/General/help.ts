@@ -11,7 +11,7 @@ export class HelpCommand extends Command {
             ...options,
             name: 'help',
             aliases: [],
-            description: 'How to use the bot',
+            description: 'How to use the bot.',
         });
     }
 

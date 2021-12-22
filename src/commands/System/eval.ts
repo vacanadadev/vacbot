@@ -8,7 +8,8 @@ export class EvalCommand extends Command {
             ...options,
             name: 'eval',
             aliases: [],
-            description: 'Runs code in the bot\'s environment. Only for developers.',
+            description: 'Runs code in the bot\'s environment.',
+            detailedDescription: 'Runs code in the bot\'s environment. Only usable by the bot owner.',
         });
     }
 

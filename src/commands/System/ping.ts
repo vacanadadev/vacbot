@@ -7,7 +7,7 @@ export class PingCommand extends Command {
             ...options,
             name: 'ping',
             aliases: [],
-            description: 'Ping Pong! (Tests the bot\'s latency)',
+            description: 'Ping Pong! (Tests the bot\'s latency).',
         });
     }
 
