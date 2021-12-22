@@ -24,10 +24,10 @@
   },
   "devDependencies": {
     "@types/jest": "27.0.3",
-    "@types/number-to-words": "^1.2.1",
-    "@types/superagent": "^4.1.13",
-    "jest": "^27.4.5",
+    "@types/number-to-words": "1.2.1",
+    "@types/superagent": "4.1.13",
+    "jest": "27.4.5",
     "standard-version": "9.3.2",
-    "ts-jest": "^27.1.2"
+    "ts-jest": "27.1.2"
   }
 }
