@@ -8,7 +8,6 @@ on:
     branches: [master]
   pull_request:
     branches: [master]
-  workflow_dispatch:
 
 jobs:
   build:
@@ -26,25 +25,9 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           cache: "npm"
-      - run: npm ci
-      - run: npm run build --if-present
-
-  test:
-    runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [17.x]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
-
-    needs: [build]
-
-    steps:
-      - uses: actions/checkout@v2
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v2
-        with:
-          node-version: ${{ matrix.node-version }}
-          cache: "npm"
-      - name: "Test w/ Jest"
-        run: npm t
+      - name: Clean Install of Dependencies
+        run: npm ci
+      - name: Build Code in Test Suite
+        run: npm run build --if-present
+      - name: Test w/ Jest
+        run: npm test --if-present
