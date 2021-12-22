@@ -43,7 +43,7 @@ export class HelpCommand extends Command {
             commands.filter(c => String(c.fullCategory) == category).forEach(command => {
                 fields.push({
                     name: `/${command.name}`,
-                    value: command.description
+                    value: command.detailedDescription || command.description
                 })
             })
 
