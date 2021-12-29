@@ -1,7 +1,7 @@
-import { LogLevel, SapphireClient } from "@sapphire/framework";
+import { SapphireClient, SapphireClientOptions } from "@sapphire/framework";
 
 export class VACClient extends SapphireClient {
-    constructor(options?: object) {
+    constructor(options?: SapphireClientOptions) {
         super({
             ...options,
             intents: 14335,
@@ -11,7 +11,6 @@ export class VACClient extends SapphireClient {
                 limit: 3
             },
             typing: true,
-            logger: { level: LogLevel.Debug }
         });
     }
 }
