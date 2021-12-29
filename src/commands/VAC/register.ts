@@ -107,12 +107,11 @@ export class RegisterCommand extends Command {
 
                         const guild = this.container.client.guilds.cache.get(process.env.SERVER_ID || '');
 
-                        let CYUL = guild?.roles.cache.get('923701572393897994');
-                        let CYVR = guild?.roles.cache.get('923701530429902878');
-                        let CYWG = guild?.roles.cache.get('923701547869827073');
-                        let CYYZ = guild?.roles.cache.find(r => r.name == process.env.TEST_ENV_VAR || r.name == '');
-                        let Pilot = guild?.roles.cache.get('923701757211721778');
-                        // let Pilot = this.container.client.guilds.cache.get(process.env.SERVER_ID || '')?.roles.cache.find(r => r.id === `{process.env.PILOT_ROLE}`) || ''
+                        let CYUL = guild?.roles.cache.get('578683605996273664');
+                        let CYVR = guild?.roles.cache.get('578683441831215115');
+                        let CYWG = guild?.roles.cache.get('578683837064675328');
+                        let CYYZ = guild?.roles.cache.get('578683757121503279');
+                        let Pilot = guild?.roles.cache.get('859924904915763210');
 
                         switch (vacIDResult.hub) {
                             case 'CYYZ':
