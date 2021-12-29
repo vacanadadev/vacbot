@@ -12,7 +12,7 @@ export class ChatInputCommandDeniedListener extends Listener {
     }
 
     public run(error: UserError, payload: ChatInputCommandDeniedPayload) {
-        payload.interaction.reply(`${error.message} (Error: \`${error.identifier}\`)`);
+        payload.interaction.reply({ content: `${error.message} (Error: \`${error.identifier}\`)`, ephemeral: true });
     }
 
 }

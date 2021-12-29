@@ -1,7 +1,7 @@
-import { SapphireClient } from "@sapphire/framework";
+import { SapphireClient, SapphireClientOptions } from "@sapphire/framework";
 
 export class VACClient extends SapphireClient {
-    constructor(options?: object) {
+    constructor(options?: SapphireClientOptions) {
         super({
             ...options,
             intents: 14335,

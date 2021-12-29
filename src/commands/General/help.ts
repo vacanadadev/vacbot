@@ -11,7 +11,7 @@ export class HelpCommand extends Command {
             ...options,
             name: 'help',
             aliases: [],
-            description: 'How to use the bot',
+            description: 'How to use the bot.',
         });
     }
 
@@ -23,7 +23,7 @@ export class HelpCommand extends Command {
         },
             {
                 guildIds: ['921757111548018748'],
-                idHints: ['922457790444892211']
+                idHints: ['925762459988533318']
             })
     }
 
@@ -43,7 +43,7 @@ export class HelpCommand extends Command {
             commands.filter(c => String(c.fullCategory) == category).forEach(command => {
                 fields.push({
                     name: `/${command.name}`,
-                    value: command.description
+                    value: command.detailedDescription || command.description
                 })
             })
 

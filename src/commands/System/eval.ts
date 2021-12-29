@@ -8,7 +8,9 @@ export class EvalCommand extends Command {
             ...options,
             name: 'eval',
             aliases: [],
-            description: 'Runs code in the bot\'s environment. Only for developers.',
+            description: 'Runs code in the bot\'s environment.',
+            detailedDescription: 'Runs code in the bot\'s environment. Only usable by the bot owner.',
+            preconditions: ['OwnerOnly'],
         });
     }
 
@@ -17,7 +19,6 @@ export class EvalCommand extends Command {
             name: this.name,
             description: this.description,
             type: 'CHAT_INPUT',
-            defaultPermission: false,
             options: [
                 {
                     type: 'STRING',
@@ -35,22 +36,8 @@ export class EvalCommand extends Command {
         },
             {
                 guildIds: ['921757111548018748'],
-                idHints: ['921762487290957855'],
+                idHints: ['923769775329517578'],
             })
-
-        // setTimeout(async () => {
-        const command = await client.guilds.cache.get('921757111548018748')?.commands.fetch('921762487290957855');
-        // console.log(command)
-
-        const permissions: ApplicationCommandPermissionData[] = [
-            {
-                id: process.env.OWNER_ID || '',
-                type: 'USER',
-                permission: true,
-            },
-        ];
-        await command?.permissions.set({ permissions });
-        // }, 2000)
 
     }
 

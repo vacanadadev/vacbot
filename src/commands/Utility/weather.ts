@@ -10,7 +10,8 @@ export class WeatherCommand extends Command {
             ...options,
             name: 'weather',
             aliases: [],
-            description: 'Fetches the weather (METAR or TAF) for a given location',
+            description: 'Fetches the weather (METAR or TAF) for a given location.',
+            detailedDescription: 'Fetches the weather (METAR or TAF) for a given location. Can be returned in a private message.',
         });
     }
 
@@ -62,7 +63,7 @@ export class WeatherCommand extends Command {
         },
             {
                 guildIds: ['921757111548018748'],
-                idHints: ['922108112394158110']
+                idHints: ['923769775958679583']
             })
     }
 
