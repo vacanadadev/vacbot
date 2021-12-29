@@ -7,9 +7,9 @@ export async function updateMembers(guildId: string, client: VACClient) {
     const memberCount = Number(guild?.memberCount) - 1;
 
     if (memberCount === 1) {
-        client.user?.setActivity(`${memberCount} pilot | vacanada.org`, { type: 'WATCHING' });
+        client.user?.setActivity(`vacanada.org`, { type: 'WATCHING' });
     } else {
-        client.user?.setActivity(`${memberCount} pilots | vacanada.org`, { type: 'WATCHING' })
+        client.user?.setActivity(`vacanada.org`, { type: 'PLAYING' })
     }
 
     return;
