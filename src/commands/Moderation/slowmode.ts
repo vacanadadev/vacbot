@@ -29,7 +29,7 @@ export class SlowmodeCommand extends Command {
         },
             {
                 guildIds: ['921757111548018748'],
-                idHints: ['923269920148574279']
+                idHints: ['923769774918483978']
             })
     }
 

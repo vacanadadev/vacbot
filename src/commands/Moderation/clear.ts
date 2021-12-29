@@ -30,7 +30,7 @@ export class ClearCommand extends Command {
         },
             {
                 guildIds: ['921757111548018748'],
-                idHints: ['923237238156972072']
+                idHints: ['923769774448738335']
             })
     }
 

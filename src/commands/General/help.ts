@@ -23,7 +23,7 @@ export class HelpCommand extends Command {
         },
             {
                 guildIds: ['921757111548018748'],
-                idHints: ['922457790444892211']
+                idHints: []
             })
     }
 

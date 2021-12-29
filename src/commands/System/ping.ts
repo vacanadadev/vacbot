@@ -19,7 +19,7 @@ export class PingCommand extends Command {
         },
             {
                 guildIds: ['921757111548018748'],
-                idHints: ['921762487748145232']
+                idHints: ['923769775753142382']
             })
     }
 

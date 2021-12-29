@@ -1,4 +1,4 @@
-import { SapphireClient } from "@sapphire/framework";
+import { LogLevel, SapphireClient } from "@sapphire/framework";
 
 export class VACClient extends SapphireClient {
     constructor(options?: object) {
@@ -11,6 +11,7 @@ export class VACClient extends SapphireClient {
                 limit: 3
             },
             typing: true,
+            logger: { level: LogLevel.Debug }
         });
     }
 }

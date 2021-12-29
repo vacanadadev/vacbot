@@ -63,7 +63,7 @@ export class WeatherCommand extends Command {
         },
             {
                 guildIds: ['921757111548018748'],
-                idHints: ['922108112394158110']
+                idHints: ['923769775958679583']
             })
     }
 
