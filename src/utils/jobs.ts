@@ -11,7 +11,7 @@ export const mainMYSQL = mysql.createConnection({
 
 export function scheduleJobs(client: VACClient) {
     // schedule.scheduleJob('* * * * *', () => {});
-    const onDutyRole = client.guilds.cache.get(process.env.SERVER_ID || '')?.roles.cache.find(r => r.id === '923314851252670464');
+    const onDutyRole = client.guilds.cache.get(process.env.SERVER_ID || '')?.roles.cache.find(r => r.id === '859582871185129482');
 
     setInterval(() => {
         const { updateMembers } = require('./status');
