@@ -35,8 +35,8 @@ export class EvalCommand extends Command {
             ]
         },
             {
-                guildIds: ['921757111548018748'],
-                idHints: ['923769775329517578'],
+                guildIds: [process.env.SERVER_ID || ''],
+                idHints: [],
             })
 
     }

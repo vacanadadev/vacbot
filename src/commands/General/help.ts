@@ -22,8 +22,8 @@ export class HelpCommand extends Command {
             type: 'CHAT_INPUT'
         },
             {
-                guildIds: ['921757111548018748'],
-                idHints: ['925762459988533318']
+                guildIds: [process.env.SERVER_ID || ''],
+                idHints: []
             })
     }
 

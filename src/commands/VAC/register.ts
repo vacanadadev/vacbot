@@ -28,8 +28,8 @@ export class RegisterCommand extends Command {
             ]
         },
             {
-                guildIds: ['921757111548018748'],
-                idHints: ['923769860624908298']
+                guildIds: [process.env.SERVER_ID || ''],
+                idHints: []
             })
     }
 

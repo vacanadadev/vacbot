@@ -28,8 +28,8 @@ export class SlowmodeCommand extends Command {
             }]
         },
             {
-                guildIds: ['921757111548018748'],
-                idHints: ['923769774918483978']
+                guildIds: [process.env.SERVER_ID || ''],
+                idHints: []
             })
     }
 
