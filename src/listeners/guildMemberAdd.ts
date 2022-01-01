@@ -11,7 +11,8 @@ export class GuildMemberAddListener extends Listener {
         });
     }
 
-    public async run(client: Client, member: GuildMember) {
+    public async run(member: GuildMember) {
+        const client = this.container.client
         const guild = await client.guilds.cache.get(process.env.SERVER_ID || '')
         updateMembers(guild?.id || '', client)
 
@@ -71,7 +72,7 @@ export class GuildMemberAddListener extends Listener {
 
         const registerEmbed = createInfoEmbed(client, {
             title: 'Registration',
-            description: `To gain access to the Official VAC Discord server, and register your Discord account with the bot, please run /register command in ${guild?.channels.cache.get(process.env.GOTO_CHANNEL_ID || '')?.toString()} channel. Your verification code can be found by following the instructions in that channel.`,
+            description: `To gain access to the Official VAC Discord server, and register your Discord account with the bot, please run /register command in ${guild?.channels.cache.get(process.env.REGISTER_CHANNEL_ID || '')?.toString()} channel. Your verification code can be found by following the instructions in that channel.`,
         });
 
         const welcomeChannel = await client.channels.cache.get(process.env.WELCOME_CHANNEL_ID || '');
