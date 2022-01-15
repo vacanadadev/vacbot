@@ -32,6 +32,6 @@
     "@types/superagent": "4.1.14",
     "jest": "27.4.7",
     "standard-version": "9.3.2",
-    "ts-jest": "27.1.2"
+    "ts-jest": "27.1.3"
   }
 }
