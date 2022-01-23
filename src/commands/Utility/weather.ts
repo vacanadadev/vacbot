@@ -10,8 +10,8 @@ export class WeatherCommand extends Command {
             ...options,
             name: 'weather',
             aliases: [],
-            description: 'Fetches the weather (METAR or TAF) for a given location.',
-            detailedDescription: 'Fetches the weather (METAR or TAF) for a given location. Can be returned in a private message.',
+            description: '[EN] Fetches the weather (METAR or TAF) for a given location.',
+            detailedDescription: '[EN] Fetches the weather (METAR or TAF) for a given location. Can be returned in a private message.',
         });
     }
 

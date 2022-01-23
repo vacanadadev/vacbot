@@ -11,7 +11,7 @@ export class HelpCommand extends Command {
             ...options,
             name: 'help',
             aliases: [],
-            description: 'How to use the bot.',
+            description: '[EN/FR] How to use the bot || Comment utiliser le robot',
         });
     }
 
@@ -50,9 +50,9 @@ export class HelpCommand extends Command {
             paginated.addPageEmbed(createInfoEmbed(client, { title: `${category} Commands`, fields }));;
         }
 
-        const message = await interaction.user.send('**Help Menu** - Use the buttons below to navigate the help menu. One category per page. You may not have access to all the commands shown.');
+        const message = await interaction.user.send('**Help Menu** - Use the buttons below to navigate the help menu. One category per page. You may not have access to all the commands shown.\n\n**---**\n\n**Menu d\'aide** - Utilisez les boutons ci - dessous pour naviguer dans le menu d\'aide. Une catégorie par page. Il se peut que vous n\'ayez pas accès à toutes les commandes affichées.');
         await paginated.run(message, interaction.user);
 
-        interaction.editReply({ content: 'Check your DM\'s!' });
+        interaction.editReply({ content: 'Check your DM\'s! || Vérifiez vos messages personnels !' });
     }
 }

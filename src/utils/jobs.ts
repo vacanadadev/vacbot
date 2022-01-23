@@ -76,7 +76,7 @@ export function scheduleJobs(client: VACClient) {
 
         await channel?.bulkDelete(99)
 
-        await channel?.send({ content: 'To register, please run the \`/register\` command. The image below shows how to retrieve your verification code. Please note that it may take up to a few minutes before your roles are added. The discord api gets a lot of traffic and can be slow sometimes.', files: [{ name: 'verificationCode.png', attachment: 'https://docs.google.com/uc?export=download&id=1IYkZ9YiHPiq0TWf7uzGsbixCEh6kxqmp' }] });
+        await channel?.send({ content: 'To register, please run the \`/register\` command. The image below shows how to retrieve your verification code. \n\n**---**\n\nPour vous inscrire, veuillez exécuter la commande ``/register``. L\'image ci- dessous montre comment récupérer votre code de vérification.', files: [{ name: 'verificationCode.png', attachment: 'https://docs.google.com/uc?export=download&id=1IYkZ9YiHPiq0TWf7uzGsbixCEh6kxqmp' }] });
     });
 
 }

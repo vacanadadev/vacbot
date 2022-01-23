@@ -8,8 +8,8 @@ export class ClearCommand extends Command {
             ...options,
             name: 'clear',
             aliases: [],
-            description: 'Clears the channel of the specified amount of messages.',
-            detailedDescription: 'Clears the channel of the specified amount of messages. Can only be used by moderators on messages younger than 2 weeks.',
+            description: '[EN/FR] Clears the channel of messages || Efface les messages du canal',
+            detailedDescription: '[EN/FR] Clears the channel of the specified amount of messages. Can only be used by moderators on messages younger than 2 weeks. || Efface le canal de la quantité spécifiée de messages. Peut seulement être utilisé par les modérateurs sur les messages de moins de 2 semaines.',
             preconditions: ['GuildOnly'],
             requiredUserPermissions: ['MANAGE_MESSAGES'],
         });
@@ -24,7 +24,7 @@ export class ClearCommand extends Command {
             options: [{
                 type: 'NUMBER',
                 name: 'amount',
-                description: 'The amount of messages to delete (max: 99).',
+                description: 'The amount of messages to delete (max: 99). || Le nombre de messages à supprimer (max : 99).',
                 required: true
             }]
         },
@@ -43,13 +43,13 @@ export class ClearCommand extends Command {
         if (channel?.type !== 'GUILD_TEXT') return
 
         if (!amount || amount > 99 || amount < 1) {
-            return await interaction.editReply({ content: 'The amount of messages to delete must be from 1-99.' })
+            return await interaction.editReply({ content: 'The amount of messages to delete must be from 1-99. || Le nombre de messages à supprimer doit être compris entre 1 et 99.' })
         }
 
         await channel?.bulkDelete(amount).then((messages) => {
             const mAmount = messages.size;
 
-            interaction.editReply({ content: `Deleted ${mAmount} message${mAmount !== 1 ? 's' : ''}.` });
+            interaction.editReply({ content: `Deleted ${mAmount} message${mAmount !== 1 ? 's' : ''}. || Supprimé ${mAmount} message${mAmount !== 1 ? 's' : ''}.` });
         })
     }
 }

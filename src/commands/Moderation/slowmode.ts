@@ -7,8 +7,8 @@ export class SlowmodeCommand extends Command {
             ...options,
             name: 'slowmode',
             aliases: [],
-            description: 'Sets the slowmode of the channel.',
-            detailedDescription: 'Sets the slowmode of the channel. Can only be used by moderators.',
+            description: '[EN/FR] Sets the slowmode of the channel || Définit le mode lent du canal',
+            detailedDescription: '[EN/FR] Sets the slowmode of the channel. Can only be used by moderators. || Définit le mode lent du canal. Ne peut être utilisé que par les modérateurs.',
             preconditions: ['GuildOnly'],
             requiredUserPermissions: ['MANAGE_CHANNELS'],
         });

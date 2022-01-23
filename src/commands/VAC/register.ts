@@ -8,8 +8,8 @@ export class RegisterCommand extends Command {
             ...options,
             name: 'register',
             aliases: [],
-            description: 'Registers your discord account with MyVAC.',
-            detailedDescription: 'Registers your discord account with MyVAC. This is required for the bot to work. The verrification code can be retrieved using the instructions in #terminal.',
+            description: '[EN] Registers your discord account with MyVAC || Pas de version française (pour l\'instant), ouvrez un ticket #support pour obtenir de l\'aide.',
+            detailedDescription: '[EN] Registers your discord account with MyVAC. This is required for the bot to work. The verrification code can be retrieved using the instructions in #terminal. || Pas de version française (pour l\'instant), ouvrez un ticket #support pour obtenir de l\'aide.',
         });
     }
 

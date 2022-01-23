@@ -20,7 +20,7 @@ export class GuildMemberAddListener extends Listener {
 
         const welcomeEmbed = createInfoEmbed(client, {
             title: 'Welcome!',
-            description: 'Welcome to the Official Virtual Air Canada Discord Server! Please read the info below on how to connect your VAC account to your Discord and gain access to the wonderful server awaiting you!',
+            description: 'Welcome to the Official Virtual Air Canada Discord Server! Please read the info below on how to connect your VAC account to your Discord and gain access to the wonderful server awaiting you! || Pas de version française (pour l\'instant), ouvrez un ticket #support pour obtenir de l\'aide.',
         })
 
         const policyEmbed = createInfoEmbed(client, {
@@ -78,7 +78,7 @@ export class GuildMemberAddListener extends Listener {
         const welcomeChannel = await client.channels.cache.get(process.env.WELCOME_CHANNEL_ID || '');
         if (welcomeChannel?.type !== 'GUILD_TEXT') return;
 
-        await welcomeChannel.send(`**✅ | <@${member.id}> Has Joined** | *Welcome! Please read the message sent to you by <@${client.user?.id}>.*`);
+        await welcomeChannel.send(`**✅ | <@${member.id}> Has Joined / C'est ici** | *Welcome! Please read the message sent to you by <@${client.user?.id}>. / Bienvenue! Veuillez lire le message qui vois a été envoyé par <@${client.user?.id}>*`);
         await member.send({ embeds: [welcomeEmbed, policyEmbed, registerEmbed] }).catch(error => { });
 
     }
