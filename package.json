@@ -32,7 +32,7 @@
     "@types/number-to-words": "1.2.1",
     "@types/superagent": "4.1.15",
     "jest": "27.5.1",
-    "standard-version": "9.3.2",
+    "standard-version": "9.5.0",
     "ts-jest": "27.1.4"
   }
 }
